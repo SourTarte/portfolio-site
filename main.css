@@ -1,4 +1,32 @@
 * {
-    --main-font: "Roboto Mono", Helvetica, Arial, sans-serif;
+    --main-font: "Montserrat", Helvetica, Arial, sans-serif;
+    --accent-font: "Roboto Mono", Helvetica, Arial, sans-serif;
     font-family: var(--main-font), serif;
+    color: #d8d8d8;
+}
+
+html {
+    margin-top: 56px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--accent-font), serif;
+    font-weight: 700 !important;
+}
+
+section {
+    min-height: 5vh;
+}
+
+.project-card{
+    border: solid #272d35;
+    border-radius: 25px;
+    background: #262b33;
+}
+.project-year {
+    background-color: #191d23;
+}
+
+.section-even {
+    background-color: #292d33;
 }
