@@ -1,0 +1,4 @@
+* {
+    --main-font: "Roboto Mono", Helvetica, Arial, sans-serif;
+    font-family: var(--main-font), serif;
+}
