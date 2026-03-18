@@ -740,8 +740,6 @@ progress {
 
 .container,
 .container-fluid,
-.container-xxxxl,
-.container-xxxl,
 .container-xxl,
 .container-xl,
 .container-lg,
@@ -781,16 +779,6 @@ progress {
     max-width: 1320px;
   }
 }
-@media (min-width: 1600px) {
-  .container-xxxl, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1500px;
-  }
-}
-@media (min-width: 2300px) {
-  .container-xxxxl, .container-xxxl, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1900px;
-  }
-}
 :root {
   --bs-breakpoint-xs: 0;
   --bs-breakpoint-sm: 576px;
@@ -798,7 +786,6 @@ progress {
   --bs-breakpoint-lg: 992px;
   --bs-breakpoint-xl: 1200px;
   --bs-breakpoint-xxl: 1400px;
-  --bs-breakpoint-xxxl: 1600px;
 }
 
 .row {
@@ -3976,8 +3963,7 @@ textarea.form-control-lg {
 .navbar > .container-md,
 .navbar > .container-lg,
 .navbar > .container-xl,
-.navbar > .container-xxl,
-.navbar > .container-xxxl{
+.navbar > .container-xxl{
   display: flex;
   flex-wrap: inherit;
   align-items: center;
