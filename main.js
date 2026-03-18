@@ -1,170 +1,167 @@
+//Initialising Popover
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
-const particleSpeed = 0.6;
-const particleRadius = 4;
-const particleConnectDistance = 100;
-const particleConnectWidth = 2;
 
-const particleMinDistance = 50;   // how close is “too close”
-const repulsionStrength = 0.04;   // how strongly they push away
-
-const MAX_ROTATION = Math.PI / 180; // 1 degree/sec
-
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-let particles = [];
-const COUNT = 100;
-
-function resize() {
-    canvas.width = document.documentElement.clientWidth;
-    canvas.height = document.documentElement.clientHeight;
-}
-window.addEventListener("resize", resize);
-resize();
-
-function createParticles() {
-    particles = [];
-    for (let i = 0; i < COUNT; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            speed: Math.random() * particleSpeed + 0.2,
-            angle: Math.random() * Math.PI * 2,
-            connections: 0,
-            cx: 0, // centroid x
-            cy: 0,  // centroid y
-            orbitDir: Math.random() < 0.5 ? -1 : 1
-        });
+//Defining Project Listings
+const projects = [
+    {
+        id: "purranormal",
+        title: "Purranormal",
+        date: "November 2025",
+        image: "assets/img/portfolio-work-screenshots/purranormal-1.png",
+        summary: "Halloween-themed hackathon project. This webapp utilises a gesture-driven card interface inspired by modern mobile matching apps, in order to entertain users by pairing them up with prospective pet familiars.",
+        overview: `
+                <p>Project Timescale: 120 days<br>Team Size: 7</p>
+                <strong>Goals</strong>
+                <p>For this project, the goal was to (insert brief description) to succeed.</p>
+                
+                <strong>Achievements</strong>
+                <ul>
+                    <li>Created a swipable card-based interface, using JavaScript</li>
+                    <li>Implemented a back-end solution capable of saving and recalling data entries, utilising Django.</li>
+                    <li>Assisted in running stand-up meetings in order to bridge knowledge gaps and align the team's vision.</li>
+                    <li>Recorded information rich short-form video documentation, for the purpose of being reviewed by stakeholders.</li>
+                </ul>
+                
+                <strong>Outcomes</strong>
+                <p>At the end of this brief the team had resulted in the following product. Here is what it did.</p>
+                
+                <strong>Reflections</strong>
+                <p>If I were to do this project again, here's what I'd do differently.</p>
+        `,
+        repository: "https://github.com/hannahro15/CI-Halloween-Hackathon-25",
+        deployed: "https://purranormal-26af1e8cdfe0.herokuapp.com/",
+    },
+    {
+        id: "dragonshoard",
+        title: "The Dragon's Hoard Barmoury",
+        date: "October 2025",
+        image: "assets/img/portfolio-work-screenshots/dragonshoard-1.png",
+        summary: "Full stack webapp created as a Mockup for a fictional fantasy shopkeeper's e-commerce website.",
+        overview: `
+                <p>Project Timescale: 120 days<br>Team Size: 7</p>
+                <strong>Goals</strong>
+                <p>GoalText</p>
+                
+                <strong>Achievements</strong>
+                <p>ResponsibilityText</p>
+                
+                <strong>Outcomes</strong>
+                <p>OutcomeText</p>
+                
+                <strong>Reflections</strong>
+                <p>ReflectText</p>
+        `,
+        repository: "https://github.com/SourTarte/fantasy-storefront",
+        deployed: "https://squat-llama-c5e1f1c2daa0.herokuapp.com/",
+    },
+    {
+        id: "quizia",
+        title: "Quizia",
+        date: "September 2025",
+        image: "assets/img/portfolio-work-screenshots/quizia-1.png",
+        summary: "Web game centering around answering trivia questions, utilising the Open Trivia Database API. Created as a group project for a hackathon ",
+        overview: `
+                <p>Project Timescale: 120 days<br>Team Size: 7</p>
+                <strong>Goals</strong>
+                <p>GoalText</p>
+                
+                <strong>Achievements</strong>
+                <p>ResponsibilityText</p>
+                
+                <strong>Outcomes</strong>
+                <p>OutcomeText</p>
+                
+                <strong>Reflections</strong>
+                <p>ReflectText</p>
+        `,
+        repository: "https://github.com/SourTarte/hackathon-quiz-game",
+        deployed: "https://sourtarte.github.io/hackathon-quiz-game/",
+    },
+    {
+        id: "poweredbylancer",
+        title: "Powered by Lancer",
+        date: "July 2025",
+        image: "assets/img/portfolio-work-screenshots/powered-by-lancer.png",
+        summary: "A theme for the Obsidian markdown editor, based on the aesthetics of the Lancer TTRPG.",
+        overview: `
+                <p>Project Timescale: 120 days<br>Team Size: 7</p>
+                <strong>Goals</strong>
+                <p>GoalText</p>
+                
+                <strong>Achievements</strong>
+                <p>ResponsibilityText</p>
+                
+                <strong>Outcomes</strong>
+                <p>OutcomeText</p>
+                
+                <strong>Reflections</strong>
+                <p>ReflectText</p>
+        `,
+        repository: "https://github.com/SourTarte/Powered-By-Lancer",
+        deployed: "Deployed",
     }
-}
-createParticles();
-
-let lastTime = performance.now();
-
-function draw(time) {
-    const dt = (time - lastTime) / 1000;
-    lastTime = time;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Reset connection data
-    particles.forEach(p => {
-        p.connections = 0;
-        p.cx = 0;
-        p.cy = 0;
-    });
-
-    // Calculate connections + centroid accumulation + draw lines
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            // --- Repulsion force when too close ---
-            if (dist < particleMinDistance && dist > 0) {
-                const overlap = particleMinDistance - dist;
-
-                const t = 1 - dist / particleMinDistance; // 0 → 1
-                const force = repulsionStrength * t * t;  // quadratic falloff
-
-                // Normalized direction from j → i
-                const nx = dx / dist;
-                const ny = dy / dist;
-
-                // Apply repulsion to angles (steering)
-                particles[i].angle += force * ny;
-                particles[j].angle -= force * ny;
-
-                particles[i].angle += force * nx;
-                particles[j].angle -= force * nx;
-            }
-
-            if (dist < particleConnectDistance) {
-                particles[i].connections++;
-                particles[j].connections++;
-
-                // accumulate positions for centroid
-                particles[i].cx += particles[j].x;
-                particles[i].cy += particles[j].y;
-
-                particles[j].cx += particles[i].x;
-                particles[j].cy += particles[i].y;
-
-                // draw line
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(255,255,255,${1 - dist / particleConnectDistance})`;
-                ctx.lineWidth = particleConnectWidth;
-                ctx.stroke();
-            }
-        }
-    }
-
-    // Update particles
-    particles.forEach(p => {
-
-        if (p.connections > 0) {
+];
 
 
-            // Compute centroid
-            const cx = p.cx / p.connections;
-            const cy = p.cy / p.connections;
+function createProjectInformation(project) {
+    return `
+        <article class="project">
+            <!--<div class="project-year px-0 mx-0 pt-2 pb-1">
+                <div class="container">
+                    <div class="row">
+                        <h2 class="text-end project-year"></h2>
+                    </div>
+                </div>
+            </div>-->
+                <div class="container">
+                    <div class="project-card p-3 my-2">
+                        <div class="row">
+                            <div class="col">
+                            <div class="">
+                                <img src=${project.image} class="img-fluid" alt="..." style="object-fit: contain">
+                            </div>
+                                
+                            </div>
+                            <div class="col-9 my-lg-2 mb-5 justify-content-evenly">
+                                <!---- Project Title ---->
+                                <h2 class="text-start">${project.title}</h2>
 
-            // Vector toward centroid
-            const dx = cx - p.x;
-            const dy = cy - p.y;
+                                <!---- Programming Language and Tool Icons ---->
+                                <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="JavaScript" class="fa-brands fa-square-js"></i>
+                                <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Python" class="fa-brands fa-python"></i>
+                                <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="HTML5" class="fa-brands fa-html5"></i>
 
-            // Base angle toward centroid
-            const baseAngle = Math.atan2(dy, dx);
+                                <!---- Project Summary ---->
+                                <p>${project.summary}</p>
+                                <!---- Links ---->
+                                <p><a href=${project.repository} class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Repository</a></p>
+                                <p><a href=${project.deployed} class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Deployed Link</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="accordion mt-3" id="AccordionOverview-${project.id}">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header align-items-center align-content-center">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse-${project.id}" aria-expanded="false" aria-controls="panelsStayOpen-collapse-${project.id}">
+                                        Project Overview
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse-${project.id}" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            ${project.overview}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            // Perpendicular angle (orbit)
-            const targetAngle = baseAngle + p.orbitDir * Math.PI / 2;
-
-            // Shortest angular difference
-            let diff = targetAngle - p.angle;
-            diff = Math.atan2(Math.sin(diff), Math.cos(diff));
-
-            // Influence scaling
-            const influence = Math.min(p.connections / 5, 1);
-
-            // Easing factor (smooth steering)
-            const ease = 0.15 * influence; // scale by connection influence
-
-            // Clamp rotation AFTER easing
-            let step = diff * ease;
-            const maxStep = MAX_ROTATION * dt * influence;
-            step = Math.max(-maxStep, Math.min(maxStep, step));
-
-            p.angle += step;
-        }
-
-        // Convert to velocity
-        const vx = Math.cos(p.angle) * p.speed;
-        const vy = Math.sin(p.angle) * p.speed;
-
-        p.x += vx;
-        p.y += vy;
-
-        // Bounds
-        if (p.x < 0 || p.x > canvas.width) {
-            p.angle = Math.PI - p.angle;
-        }
-        if (p.y < 0 || p.y > canvas.height) {
-            p.angle = -p.angle;
-        }
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, particleRadius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255,255,255,0.7)";
-        ctx.fill();
-    });
-
-    requestAnimationFrame(draw);
+                </div>
+        </article>
+    `;
 }
 
-requestAnimationFrame(draw);
+const container = document.getElementById("project-history");
+container.innerHTML = projects.map(createProjectInformation).join("");

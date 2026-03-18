@@ -48,7 +48,7 @@
         </div>
         <canvas class="mx-0 px-0" id="bg"></canvas>
     </div>
-    <div class="container-fluid section-even" id="scrollspyHeading2">
+    <div class="container-fluid section-even text-end" id="scrollspyHeading2">
         <div class="container">
             <section id="about-me">
                 <div class="row">
@@ -57,80 +57,23 @@
             </section>
         </div>
     </div>
+    <div class="project-year px-0 mx-0 pt-2 pb-1 text-end">
+        <div class="container">
+            <div class="row">
+                <h1 class="project-year">Projects</h1>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid section-odd px-0 mx-0" id="scrollspyHeading3">
-        <section class="projects">
+        <section class="projects" id="project-history">
             <div class="container">
                 <h1>Projects</h1>
             </div>
 
-            <div class="project">
-                <div class="project-year px-0 mx-0 pt-2 pb-1">
-                    <div class="container">
-                        <div class="row">
-                            <h2 class="text-end project-year">November 2025</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="project-card p-3 my-2">
-                        <div class="row">
-                            <div class="col">
-                                <img src="assets/img/purranormal/purranormal-screenshot-2.png" class="img-fluid" alt="...">
-                            </div>
-                            <div class="col-7 my-lg-2 mb-5 justify-content-evenly">
-                                <!---- Project Title ---->
-                                <h2 class="text-start">Purranormal</h2>
-
-                                <!---- Programming Language and Tool Icons ---->
-                                <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="JavaScript" class="fa-brands fa-square-js"></i>
-                                <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Python" class="fa-brands fa-python"></i>
-                                <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="HTML5" class="fa-brands fa-html5"></i>
-
-                                <!---- Project Summary ---->
-                                <p>Halloween-themed webapp utilising a gesture-driven card interface inspired by modern mobile matching apps, in order to entertain users by pairing them up with prospective pet familiars.</p>
-
-                                <!---- Links ---->
-                                <p><a href="https://github.com/hannahro15/CI-Halloween-Hackathon-25" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Repository</a></p>
-                                <p><a href="https://purranormal-26af1e8cdfe0.herokuapp.com/" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Deployed Link</a></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="accordion mt-3" id="accordionPanelsStayOpenExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header align-items-center align-content-center">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-                                        Project Overview
-                                        </button>
-                                    </h2>
-                                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-                                        <div class="accordion-body">
-                                            <p>Project Timescale: 5 days<br>Team Size: 7</p>
-                                            <strong>Goals</strong>
-                                            <p>For this project, the goal was to (insert brief description) to succeed.</p>
-
-                                            <strong>Responsibilities</strong>
-                                            <p>The role I took in this project was as follows: Insert role here and insert role here. I was tasked with insert responsibility here.</p>
-
-                                            <strong>Outcomes</strong>
-                                            <p>At the end of this brief the team had resulted in the following product. Here is what it did.</p>
-
-                                            <strong>Reflections</strong>
-                                            <p>If I were to do this project again, here's what I'd do differently.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div> <!-- Concise Project Template -->
-
-
+            <!-- Article creation handled in main.js -->
         </section>
     </div>
-    <div class="container-fluid section-even" id="scrollspyHeading4">
+    <div class="container-fluid section-even text-end" id="scrollspyHeading4">
         <div class="container">
             <section class="interests">
                 <h1>Interests</h1>
@@ -147,6 +90,12 @@
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <script src="main.js" crossorigin="anonymous"></script>
+<script src="particle-background.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
+<script>
+    const { animate } = anime;
+</script>
 
 </body>
 </html>
