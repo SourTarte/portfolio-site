@@ -30,3 +30,15 @@ section {
 .section-even {
     background-color: #292d33;
 }
+
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.hero-text{
+    position: absolute;
+}
