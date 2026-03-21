@@ -1,12 +1,11 @@
 * {
-    --main-font: "Montserrat", Helvetica, Arial, sans-serif;
+    --main-font: "Bahnschrift", Helvetica, Arial, sans-serif;
     --accent-font: "Roboto Mono", Helvetica, Arial, sans-serif;
     font-family: var(--main-font), serif;
-    color: #d8d8d8;
 }
 
 html {
-    margin-top: 56px;
+    scroll-padding-top: 70px; /* height of sticky header */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,8 +13,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700 !important;
 }
 
+p {
+    font-size: 14pt;
+}
+
+.accordion-body p, li {
+    font-size: 11pt;
+}
+
 section {
-    min-height: 5vh;
+    min-height: 100vh;
 }
 
 .project-card{
@@ -23,14 +30,38 @@ section {
     border-radius: 25px;
     background: #262b33;
 }
-.project-year {
+
+img.project-img {
+    border-radius: 10px;
+}
+.section-title {
     background-color: #191d23;
 }
 
-.section-even {
-    background-color: #292d33;
+#mapCanvas {
+    width: 100%;
+    height: 100vh;
+    display: block;
 }
 
+/*.section-even {
+    background-color: #191d23;
+}*/
+
+.reveal {
+    opacity: 0;
+    transform: translateX(-100px); /* from left */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.techstack-icons {
+
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 .hero {
     position: relative;
@@ -41,4 +72,10 @@ section {
 }
 .hero-text{
     position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 70%;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

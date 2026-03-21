@@ -12,59 +12,77 @@
 </head>
 
 <body data-bs-theme="dark" data-bs-spy="scroll" data-bs-target="#navbar">
-<header>
-    <nav id="navbar" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <nav id="navbar" class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#scrollspyHeading1"><i class="bi bi-gear-wide-connected"></i> Dion McMillan</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href=""><i class="bi bi-gear-wide-connected"></i> Dion McMillan</a>
+            <button class="navbar-toggler" type="button" data-bs-spy="scroll" data-bs-toggle="collapse" data-bs-target="#navbarText" data-bs-offset="300" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#scrollspyHeading1">About</a>
+                        <a class="nav-link active" href="#scrollspyAbout">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading2">Projects</a>
+                        <a class="nav-link" href="#scrollspyProjects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading3">Interests</a>
+                        <a class="nav-link" href="#scrollspyInterests">Interests</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading4">CV</a>
+                        <a class="nav-link" href="#scrollspyCV">CV</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-</header>
+
+
 <main>
-    <div class="container-fluid section-odd hero mx-0 px-0" id="scrollspyHeading1">
-<!--        <div id="particles-bg"></div>-->
+    <!--<div class="container-fluid section-odd hero mx-0 px-0" id="scrollspyAbout">
         <div class="container mx-0 px-0">
             <section id="hero-section">
-                <h1 class="hero-text text-center">A professionally curious coder. A methodical approach to solving problems. A passion for optimising the same tools.</h1>
+                <div class="hero-text">
+                    <h1 class="">Hi, I'm Dion McMillan. I'm an ambitious tech-minded person.</h1>
+                    <p style="font-size: 2.1rem;">
+                        I have a passion for learning new things.<br>
+                        I've got a measure and methodical approach to problem solving.<br>
+                        I'm forward-focused, with iteration being at the core of my mindset.</p>
+                </div>
             </section>
         </div>
         <canvas class="mx-0 px-0" id="bg"></canvas>
     </div>
-    <div class="container-fluid section-even text-end" id="scrollspyHeading2">
+    <div class="section-title px-0 mx-0 pt-2 pb-1 text-end">
+        <div class="container">
+            <div class="row">
+                <h1>About Me</h1>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="container-fluid">
         <div class="container">
             <section id="about-me">
                 <div class="row">
-                    <h1>About Me</h1>
+                    <div class="col"></div>
+                    <div class="col-6">
+                        I am a creature
+                    </div>
+                    <div class="col"></div>
+
                 </div>
             </section>
         </div>
     </div>
-    <div class="project-year px-0 mx-0 pt-2 pb-1 text-end">
+    <div class="section-title px-0 mx-0 pt-2 pb-1 text-end" id="scrollspyProjects">
         <div class="container">
             <div class="row">
-                <h1 class="project-year">Projects</h1>
+                <h1>Projects</h1>
             </div>
         </div>
     </div>
-    <div class="container-fluid section-odd px-0 mx-0" id="scrollspyHeading3">
+    <div class="container-fluid section-odd px-0 mx-0">
         <section class="projects" id="project-history">
             <div class="container">
                 <h1>Projects</h1>
@@ -73,10 +91,18 @@
             <!-- Article creation handled in main.js -->
         </section>
     </div>
-    <div class="container-fluid section-even text-end" id="scrollspyHeading4">
+
+    <div class="section-title px-0 mx-0 pt-2 pb-1 text-end" id="scrollspyInterests">
+        <div class="container">
+            <div class="row">
+                <h1>Interests</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid section-even text-end">
         <div class="container">
             <section class="interests">
-                <h1>Interests</h1>
+
             </section>
         </div>
     </div>
@@ -93,9 +119,6 @@
 <script src="particle-background.js" crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
-<script>
-    const { animate } = anime;
-</script>
 
 </body>
 </html>
