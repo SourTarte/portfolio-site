@@ -12,7 +12,7 @@
 </head>
 
 <body data-bs-theme="dark" data-bs-spy="scroll" data-bs-target="#navbar">
-    <nav id="navbar" class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <nav id="navbar" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href=""><i class="bi bi-gear-wide-connected"></i> Dion McMillan</a>
             <button class="navbar-toggler" type="button" data-bs-spy="scroll" data-bs-toggle="collapse" data-bs-target="#navbarText" data-bs-offset="300" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,73 +39,86 @@
 
 
 <main>
-    <!--<div class="container-fluid section-odd hero mx-0 px-0" id="scrollspyAbout">
-        <div class="container mx-0 px-0">
-            <section id="hero-section">
-                <div class="hero-text">
-                    <h1 class="">Hi, I'm Dion McMillan. I'm an ambitious tech-minded person.</h1>
-                    <p style="font-size: 2.1rem;">
-                        I have a passion for learning new things.<br>
-                        I've got a measure and methodical approach to problem solving.<br>
-                        I'm forward-focused, with iteration being at the core of my mindset.</p>
-                </div>
-            </section>
-        </div>
-        <canvas class="mx-0 px-0" id="bg"></canvas>
-    </div>
-    <div class="section-title px-0 mx-0 pt-2 pb-1 text-end">
-        <div class="container">
-            <div class="row">
-                <h1>About Me</h1>
-            </div>
-        </div>
-    </div>-->
-
-    <div class="container-fluid">
-        <div class="container">
-            <section id="about-me">
-                <div class="row">
-                    <div class="col"></div>
-                    <div class="col-6">
-                        I am a creature
-                    </div>
-                    <div class="col"></div>
-
-                </div>
-            </section>
-        </div>
-    </div>
-    <div class="section-title px-0 mx-0 pt-2 pb-1 text-end" id="scrollspyProjects">
-        <div class="container">
-            <div class="row">
-                <h1>Projects</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid section-odd px-0 mx-0">
-        <section class="projects" id="project-history">
+    <section id="scrollspyAbout">
+        <div class="container-fluid">
             <div class="container">
-                <h1>Projects</h1>
-            </div>
+                <section id="about-me">
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-6">
+                            I am a creature
+                        </div>
+                        <div class="col"></div>
 
-            <!-- Article creation handled in main.js -->
-        </section>
-    </div>
-
-    <div class="section-title px-0 mx-0 pt-2 pb-1 text-end" id="scrollspyInterests">
-        <div class="container">
-            <div class="row">
-                <h1>Interests</h1>
+                    </div>
+                </section>
             </div>
         </div>
-    </div>
-    <div class="container-fluid section-even text-end">
-        <div class="container">
-            <section class="interests">
+    </section>
 
-            </section>
+    <section id="scrollspyProjects">
+        <div class="section-title px-0 mx-0 pt-2 pb-1 text-end">
+            <div class="container">
+                <div class="row">
+                    <h1>Projects</h1>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="container-fluid section-odd px-0 mx-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-end z-0" id="">
+                        <nav class="sticky-top" style="padding-top: 30%;">
+                            <ul class="nav flex-column" id="project-link-list">
+
+                            </ul>
+                        </nav>
+
+                        <!-- Creates a list of project section links in main.js -->
+                    </div>
+                    <div class="col-9 projects scrollspy-projects" id="project-history" data-bs-offset="0px 0px -25%" data-bs-spy="scroll" data-bs-target="#project-link-list" tabindex="0" data-bs-smooth-scroll="true" >
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="scrollspyInterests">
+        <div class="section-title px-0 mx-0 pt-2 pb-1 text-end">
+            <div class="container">
+                <div class="row">
+                    <h1>Interests</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid section-even text-end">
+            <div class="container">
+                <section class="interests">
+
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="scrollspyCV">
+        <div class="section-title px-0 mx-0 pt-2 pb-1 text-end">
+            <div class="container">
+                <div class="row">
+                    <h1>Interests</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid section-even text-end">
+            <div class="container">
+                <section class="CV">
+
+                </section>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <footer>

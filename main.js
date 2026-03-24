@@ -145,16 +145,9 @@ const projects = [
 function createProjectInformation(project) {
     return `
         <article class="project">
-            <!--<div class="project-year px-0 mx-0 pt-2 pb-1">
-                <div class="container">
-                    <div class="row">
-                        <h2 class="text-end project-year"></h2>
-                    </div>
-                </div>
-            </div>-->
             <div class="reveal container">
-                <div class="project-card p-3 my-2">
-                    <div class="row">
+                <div class="project-card p-3 my-2" id="${project.id}">
+                    <div class="row"">
                         <div class="col">
                         <div>
                             <img src=${project.image} class="img-fluid project-img" alt="..." style="object-fit: contain">
@@ -172,11 +165,6 @@ function createProjectInformation(project) {
                                     ${project.tech}
                                 </div>
                             </div>
-                            
-
-                            
-                            
-
                             <!---- Project Summary ---->
                             <p>${project.summary}</p>
                             <!---- Links ---->
@@ -206,8 +194,19 @@ function createProjectInformation(project) {
     `;
 }
 
+function createProjectLinks(project) {
+    return `
+        <li class="nav-item">
+            <a class="nav-link project-link" href="#${project.id}">${project.title}</a>
+        </li>
+    `
+}
+
 const container = document.getElementById("project-history");
 container.innerHTML = projects.map(createProjectInformation).join("");
+
+const projectLinkContainer = document.getElementById("project-link-list");
+projectLinkContainer.innerHTML = projects.map(createProjectLinks).join("");
 
 //Sorting out revealed elements
 const reveals = document.querySelectorAll('.reveal');

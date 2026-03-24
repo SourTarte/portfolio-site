@@ -21,6 +21,10 @@ p {
     font-size: 11pt;
 }
 
+.navbar-nav > li > a {
+    font-size: 1.2em;
+}
+
 section {
     min-height: 100vh;
 }
@@ -44,13 +48,9 @@ img.project-img {
     display: block;
 }
 
-/*.section-even {
-    background-color: #191d23;
-}*/
-
 .reveal {
     opacity: 0;
-    transform: translateX(-100px); /* from left */
+    transform: translateX(100px); /* from right */
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
