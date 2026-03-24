@@ -2,6 +2,9 @@
     --main-font: "Bahnschrift", Helvetica, Arial, sans-serif;
     --accent-font: "Roboto Mono", Helvetica, Arial, sans-serif;
     font-family: var(--main-font), serif;
+
+    --bs-link-color: #9c6aff !important;
+    --bs-nav-link-hover-color: #c2a4ff !important;
 }
 
 html {
@@ -55,10 +58,12 @@ img.project-img {
 }
 
 .project-link {
+
 }
 
 .project-link.active {
-    color: #c054ff;
+
+    color: #c894ff;
 }
 
 .reveal.active {

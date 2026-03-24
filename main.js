@@ -5,26 +5,30 @@ const projects = [
         title: "Purranormal",
         date: "November 2025",
         image: "assets/img/portfolio-work-screenshots/purranormal-1.png",
-        summary: "Halloween-themed hackathon project. This webapp utilises a gesture-driven card interface inspired by modern mobile matching apps, in order to entertain users by pairing them up with prospective pet familiars.",
+        summary: "Halloween hackathon project featuring a swipe-based matching interface for discovering “pet familiars”, backed by a Django-powered persistence layer.",
         overview: `
-            <h5><strong>Goals</strong></h5>
-            <p>The overarching objective for this hackathon project was to create a workable full stack application over the course of five days, which adhered to the theme of &#39;Halloween&#39;.</p>
-            <h5><strong>Achievements</strong></h5>
-            
+            <p><strong>Goals</strong></p>
             <ul>
-                <li>Championing the idea that became the core of the team&#39;s vision.</li>
-                <li>Creating a swipable card-based interface, using JavaScript.</li>
-                <li>Implementing a back-end solution capable of saving and recalling data entries, utilising Django. </li>
-                <li>Assisting in running stand-up meetings to help with understanding and following Agile methodologies.</li>
-                <li>Checking in with team members who were more junior, in order to bridge knowledge gaps and align team vision. </li>
-                <li>Recording information rich short-form video documentation, for the purpose of review by stakeholders.</li>
-                <li>Managing the repository, resolving the team&#39;s merge conflicts throughout the development.</li>
+            <li>Build a full-stack application within 5 days aligned to the “Halloween” theme.</li>
             </ul>
-            
-            <h5><strong>Outcomes</strong></h5>
-            <p>I believe that we delivered on what we set out to accomplish, and feel that my efforts meaningfully contributed to the final product. That&#39;s why I, and the rest of the team, were very pleased when it was announced that Purranormal had won second place in the Code Institute &#39;Halloween&#39; Hackathon.</p>
-            <h5><strong>Reflections</strong></h5>
-            <p>I do believe that it would have been wise to spend more time during task delegation getting the junior team members involved and discussing where they feel they would be most effective.</p>
+            <p><strong>Achievements</strong></p>
+            <ul>
+            <li>Proposed and defined the core product concept adopted by the team.</li>
+            <li>Built a swipeable, gesture-driven card interface in JavaScript.</li>
+            <li>Implemented backend data persistence and retrieval using Django.</li>
+            <li>Managed repository workflows, resolving merge conflicts during active development.</li>
+            <li>Facilitated stand-ups and supported junior developers to maintain team alignment.</li>
+            </ul>
+            <p><strong>Outcomes</strong></p>
+            <ul>
+            <li>Awarded 2nd place in the Code Institute Halloween Hackathon.</li>
+            <li>Delivered a functional full-stack product within strict time constraints.</li>
+            </ul>
+            <p><strong>Reflections</strong></p>
+            <ul>
+            <li>Task delegation was too top-down early on; involving junior developers sooner would have improved efficiency and ownership.</li>
+            </ul>
+
         `,
         tech:`
             <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="JavaScript" class="fa-brands fa-square-js"></i>
@@ -40,29 +44,33 @@ const projects = [
         title: "The Dragon's Hoard Barmoury",
         date: "October 2025",
         image: "assets/img/portfolio-work-screenshots/dragonshoard-1.png",
-        summary: "Full stack webapp created as a Mockup for a fictional fantasy shopkeeper's e-commerce website.",
+        summary: "Full-stack e-commerce mockup for a fantasy-themed shop, featuring shopping cart functionality, user reviews, and cloud-based media handling.",
         overview: `
-            <h5><strong>Goals</strong></h5>
-            <p>The requirement for this project was that final product had to be a full-stack web app with at least one example of CRUD functionality. I took this constraint and added to it, implementing my own goals and using the freedom given in the brief to experiment external libraries and UX design.</p>
-            <h5><strong>Achievements</strong></h5>
-            
+            <p><strong>Goals</strong></p>
             <ul>
-                <li>Plotting an intuitive, easy to navigate, layout.</li>
-                <li>Implementing two forms of CRUD functionality.
-                    <ul>
-                        <li>Shopping cart functionality.</li>
-                        <li>Customer review section, with 5 star rating system.</li>
-                    </ul>
-                </li>
-                <li>Designing a cohesive and visually pleasing style to the product.</li>
-                <li>Utilising a cloud hosting API (Cloudinary) to lower performance overhead.</li>
+            <li>Deliver a full-stack application with at least one CRUD feature.</li>
             </ul>
-            
-            <h5><strong>Outcomes</strong></h5>
-            <p> Alongside the requirements laid out in the brief, I defined a few goals for myself. After the final product was delivered, I felt that I had met and exceeded both the product brief and my own expectations. I am still proud of how I experimented with tools I wasn&#39;t the most comfortable with and overcame problems I&#39;d never faced prior.</p>
-            <h5><strong>Reflections</strong></h5>
-            <p>The biggest lesson I took from this project was about recognising scope creep. I had created lots of features, trying new things and experimenting. However, this expanding focus lead to me allocating less time to testing, and missing a few very obvious 500 errors. </p>
-            <p>I went back and resolved those issues, using it as a learning opportunity, and a point of growth. My takeaway from it was the importance of not working up to the deadline, of allocating time to  dotting the &#39;i&#39;s and crossing the &#39;t&#39;s. To be sure that you haven&#39;t been so focused on taking another step that you forgot to tie your laces and trip over the finish line.</p>
+            <p><strong>Achievements</strong></p>
+            <ul>
+            <li>Designed and implemented site layout and navigation structure.</li>
+            <li>Built two CRUD systems:<ul>
+            <li>Shopping cart functionality</li>
+            <li>Customer reviews with 5-star ratings</li>
+            </ul>
+            </li>
+            <li>Integrated Cloudinary for media storage to reduce server load.</li>
+            <li>Developed a consistent visual style aligned with the fantasy theme.</li>
+            </ul>
+            <p><strong>Outcomes</strong></p>
+            <ul>
+            <li>Delivered a complete full-stack application exceeding initial brief requirements.</li>
+            <li>Successfully implemented and tested multiple new tools and workflows.</li>
+            </ul>
+            <p><strong>Reflections</strong></p>
+            <ul>
+            <li>Scope creep reduced time available for testing, leading to avoidable 500 errors.</li>
+            <li>Reinforced the need to allocate dedicated time for testing and final validation before delivery.</li>
+            </ul>
         `,
         tech:`
             <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="JavaScript" class="fa-brands fa-square-js"></i>
@@ -78,20 +86,32 @@ const projects = [
         title: "Quizia",
         date: "September 2025",
         image: "assets/img/portfolio-work-screenshots/quizia-1.png",
-        summary: "Web game centering around answering trivia questions, utilising the Open Trivia Database API. Created as a group project for a hackathon ",
+        summary: "Hackathon-built trivia web game using the Open Trivia Database API, featuring dynamic question rendering and local score persistence.",
         overview: `
-                <p>Project Timescale: 120 days<br>Team Size: 7</p>
-                <h5><strong>Goals</strong></h5>
-                <p>GoalText</p>
-                
-                <h5><strong>Achievements</strong></h5>
-                <p>ResponsibilityText</p>
-                
-                <h5><strong>Outcomes</strong></h5>
-                <p>OutcomeText</p>
-                
-                <h5><strong>Reflections</strong></h5>
-                <p>ReflectText</p>
+            <p><strong>Goals</strong></p>
+            <ul>
+            <li>Deliver a functional quiz application within a 4-day hackathon using a predefined project brief.</li>
+            <li>Collaborate effectively within a team of four with uneven experience levels.</li>
+            </ul>
+            <p><strong>Achievements</strong></p>
+            <ul>
+            <li>Designed and implemented the quiz interface and user interaction flow.</li>
+            <li>Integrated the Open Trivia Database API to fetch and display dynamic question data.</li>
+            <li>Built client-side logic for answer handling and game progression in JavaScript.</li>
+            <li>Implemented local storage to persist player scores across sessions.</li>
+            <li>Supported a junior teammate in learning and applying JavaScript during development.</li>
+            <li>Adapted team workflow to compensate for inconsistent contributor availability.</li>
+            </ul>
+            <p><strong>Outcomes</strong></p>
+            <ul>
+            <li>Delivered a fully functional quiz game within the hackathon timeframe.</li>
+            <li>Established a clear separation between core requirements and stretch goals during planning.</li>
+            </ul>
+            <p><strong>Reflections</strong></p>
+            <ul>
+            <li>Strong initial planning (requirements vs stretch goals) kept development focused under time pressure.</li>
+            <li>Lack of a backend limited the ability to implement persistent online leaderboards.</li>
+            </ul>
         `,
         tech:`
             <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="JavaScript" class="fa-brands fa-square-js"></i>
@@ -106,20 +126,32 @@ const projects = [
         title: "Powered by Lancer",
         date: "July 2025",
         image: "assets/img/portfolio-work-screenshots/powered-by-lancer.png",
-        summary: "A theme for the Obsidian markdown editor, based on the aesthetics of the Lancer TTRPG.",
+        summary: "Custom CSS theme made for the Obsidian markdown editor, inspired by the aesthetics of the Lancer TTRPG, and officially distributed through Obsidian’s theme marketplace.",
         overview: `
-                <p>Project Timescale: 120 days<br>Team Size: 7</p>
-                <h5><strong>Goals</strong></h5>
-                <p>GoalText</p>
-                
-                <h5><strong>Achievements</strong></h5>
-                <p>ResponsibilityText</p>
-                
-                <h5><strong>Outcomes</strong></h5>
-                <p>OutcomeText</p>
-                
-                <h5><strong>Reflections</strong></h5>
-                <p>ReflectText</p>
+            <p><strong>Goals</strong></p>
+            <ul>
+            <li>Recreate the visual identity of the Lancer TTRPG within Obsidian.</li>
+            <li>Expand beyond foundational CSS knowledge through self-directed learning.</li>
+            </ul>
+            <p><strong>Achievements</strong></p>
+            <ul>
+            <li>Designed and implemented a complete Obsidian theme using advanced CSS techniques.</li>
+            <li>Conducted detailed visual research to accurately match the Lancer style guide.</li>
+            <li>Applied pseudo-elements and more advanced selectors to extend styling capabilities.</li>
+            <li>Built upon an existing base theme and significantly extended its functionality and design.</li>
+            <li>Successfully published the theme to Obsidian’s official theme repository.</li>
+            </ul>
+            <p><strong>Outcomes</strong></p>
+            <ul>
+            <li>Achieved 3,000+ downloads through the Obsidian theme marketplace.</li>
+            <li>Delivered a fully usable and stylistically distinct theme adopted by real users.</li>
+            </ul>
+            <p><strong>Reflections</strong></p>
+            <ul>
+            <li>Over-prioritised visual accuracy to the source material, negatively impacting dark mode readability.</li>
+            <li>Highlighted the importance of balancing aesthetic fidelity with usability.</li>
+            <li>Subsequent iterations (by the community) improved on accessibility, reinforcing the value of user feedback.</li>
+            </ul>
         `,
         tech:`
             <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="CSS" class="fa-brands fa-css"></i>
@@ -216,7 +248,7 @@ const scrollSpyNav = new bootstrap.ScrollSpy(document.body, {
 })
 const scrollSpyProjects = new bootstrap.ScrollSpy(document.body, {
     target: '#project-link-list',
-    rootMargin: `0px 0px -90% 0px`,
+    rootMargin: `0px 0px -80% 0px`,
 })
 
 
