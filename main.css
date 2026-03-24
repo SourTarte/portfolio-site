@@ -3,12 +3,12 @@
     --accent-font: "Roboto Mono", Helvetica, Arial, sans-serif;
     font-family: var(--main-font), serif;
 
-    --bs-link-color: #9c6aff !important;
-    --bs-nav-link-hover-color: #c2a4ff !important;
+    --bs-link-color: #ac7dff !important;
+    --bs-nav-link-hover-color: #dfb0ff; !important;
 }
 
 html {
-    scroll-padding-top: 70px; /* height of sticky header */
+    scroll-padding-top: 60px; /* height of sticky header */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,11 +59,6 @@ img.project-img {
 
 .project-link {
 
-}
-
-.project-link.active {
-
-    color: #c894ff;
 }
 
 .reveal.active {

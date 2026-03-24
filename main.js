@@ -246,10 +246,6 @@ const scrollSpyNav = new bootstrap.ScrollSpy(document.body, {
     target: '#navbar',
     offset: 300,
 })
-const scrollSpyProjects = new bootstrap.ScrollSpy(document.body, {
-    target: '#project-link-list',
-    rootMargin: `0px 0px -80% 0px`,
-})
 
 
 
