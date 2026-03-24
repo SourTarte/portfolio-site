@@ -54,8 +54,11 @@ img.project-img {
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.techstack-icons {
+.project-link {
+}
 
+.project-link.active {
+    color: #c054ff;
 }
 
 .reveal.active {

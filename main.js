@@ -1,16 +1,3 @@
-const loadAtTop = 0;
-
-if(loadAtTop) {
-    if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-    }
-    window.addEventListener('load', () => {
-        window.scrollTo(0, 0);
-
-        // now initialize animations
-        initScrollAnimations();
-    });
-}
 //Defining Project Listings
 const projects = [
     {
@@ -144,9 +131,9 @@ const projects = [
 
 function createProjectInformation(project) {
     return `
-        <article class="project">
+        <article class="project" id="${project.id}">
             <div class="reveal container">
-                <div class="project-card p-3 my-2" id="${project.id}">
+                <div class="project-card my-2 px-3 py-4">
                     <div class="row"">
                         <div class="col">
                         <div>
@@ -215,7 +202,6 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            observer.unobserve(entry.target); // remove if you only want it once
         }
     });
 }, {
@@ -223,6 +209,17 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 reveals.forEach(el => observer.observe(el));
+
+const scrollSpyNav = new bootstrap.ScrollSpy(document.body, {
+    target: '#navbar',
+    offset: 300,
+})
+const scrollSpyProjects = new bootstrap.ScrollSpy(document.body, {
+    target: '#project-link-list',
+    rootMargin: `0px 0px -90% 0px`,
+})
+
+
 
 //Initialising Popover
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
