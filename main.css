@@ -25,7 +25,7 @@ p {
     font-size: 1.2em;
 }
 
-section {
+.spacer {
     min-height: 100vh;
 }
 
