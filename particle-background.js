@@ -4,12 +4,23 @@ const particleDensity = 150; // Amount of particles on a 1920 x 1080 display
 const particleConnectDistance = 100;
 const particleConnectWidth = 2;
 
-const particleMinDistance = 100;
+const particleMinDistance = 90;
 const repulsionStrength = 0.01;
 
 const MAX_ROTATION = Math.PI / 360;
 
 const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+let mouseX = 0;
+let mouseY = 0;
+let isMouseOverCanvas = false;
+let isMousePressed = false;
+const hoverDistance = 200; // Distance to trigger hover connection
+const mouseMinDistance = 150;
+const mouseRepulsionStrength = 0.05; // Strength of repulsion when mouse is pressed
+const canvasOffsetX = -5; // Offset for canvas left margin/padding
+const canvasOffsetY = 65; // Offset for canvas top margin/padding
 
 /* =========================
    COLOR SYSTEM
@@ -62,7 +73,6 @@ function blendColors(color1, color2) {
         l: (color1.l + color2.l) / 2
     };
 }
-const ctx = canvas.getContext("2d");
 
 let particles = [];
 
@@ -108,6 +118,39 @@ window.addEventListener("resize", () => {
     }, 150);
 });
 
+canvas.addEventListener("mousemove", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left - canvasOffsetX;
+    mouseY = e.clientY - rect.top - canvasOffsetY;
+});
+
+canvas.addEventListener("mouseenter", () => {
+    isMouseOverCanvas = true;
+});
+
+canvas.addEventListener("mouseleave", () => {
+    isMouseOverCanvas = false;
+});
+
+canvas.addEventListener("mousedown", (e) => {
+    if (e.button === 0) { // Left mouse button
+        isMousePressed = true;
+    }
+});
+
+canvas.addEventListener("mouseup", (e) => {
+    if (e.button === 0) { // Left mouse button
+        isMousePressed = false;
+    }
+});
+
+// Global mouseup to ensure isMousePressed is reset even if released outside canvas
+window.addEventListener("mouseup", (e) => {
+    if (e.button === 0) { // Left mouse button
+        isMousePressed = false;
+    }
+});
+
 resize();
 
 /* =========================
@@ -124,7 +167,8 @@ function createParticle() {
         cx: 0,
         cy: 0,
         orbitDir: Math.random() < 0.5 ? -1 : 1,
-        color: getRandomColor()
+        color: getRandomColor(),
+        beingRepelled: false
     };
 }
 
@@ -154,6 +198,7 @@ function draw(time) {
         p.connections = 0;
         p.cx = 0;
         p.cy = 0;
+        p.beingRepelled = false;
     });
 
     for (let i = 0; i < particles.length; i++) {
@@ -200,8 +245,50 @@ function draw(time) {
         }
     }
 
+    // Mouse repulsion when left button is held
+    if (isMousePressed) {
+        particles.forEach(p => {
+            const dx = p.x - mouseX;
+            const dy = p.y - mouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < mouseMinDistance && dist > 0) {
+                const t = 1 - dist / mouseMinDistance;
+                const force = mouseRepulsionStrength * t * t * 2; // Stronger repulsion for mouse
+
+                const nx = dx / dist;
+                const ny = dy / dist;
+
+                // Push particle away from mouse by modifying position directly
+                p.x += nx * force * (100 * dist / mouseMinDistance);
+                p.y += ny * force * (100 * dist / mouseMinDistance);
+                
+                // Mark particle as being repelled to interfere with dynamics
+                p.beingRepelled = true;
+            }
+        });
+    }
+
+    // Hover connections to mouse
     particles.forEach(p => {
-        if (p.connections > 0) {
+        const dx = p.x - mouseX;
+        const dy = p.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < hoverDistance && dist > 0 && isMouseOverCanvas) {
+            const opacity = 1 - dist / hoverDistance;
+
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouseX, mouseY);
+            ctx.strokeStyle = hslToString(p.color, opacity * 0.8);
+            ctx.lineWidth = particleConnectWidth;
+            ctx.stroke();
+        }
+    });
+
+    particles.forEach(p => {
+        if (p.connections > 0 && !p.beingRepelled) {
             const cx = p.cx / p.connections;
             const cy = p.cy / p.connections;
 
