@@ -10,6 +10,58 @@ const repulsionStrength = 0.01;
 const MAX_ROTATION = Math.PI / 360;
 
 const canvas = document.getElementById("bg");
+
+/* =========================
+   COLOR SYSTEM
+========================= */
+
+function getRandomColor() {
+    const isBlue = Math.random() < 0.5;
+    let h, s, l;
+
+    if (isBlue) {
+        // Blue hues: 200-260 degrees
+        h = 190 + Math.random() * 25;
+        s = 100;
+        l = 75;
+
+        
+        //s = 50 + Math.random() * 50; // 50-100%
+        //l = 40 + Math.random() * 40; // 40-80%
+    } else {
+        // Pink hues: 320-360 and 0-20 (wrapping around magenta)
+        h = 245 + Math.random() * 25; // 285-310 (magenta)
+        s = 100;
+        l = 75;
+        
+        
+        //s =  Math.random() * 50; // 50-100%
+        //l = 50 + Math.random() * 30; // 50-80%
+    }
+
+    return { h, s, l };
+}
+
+function hslToString(color, alpha) {
+    return `hsla(${Math.round(color.h)}, ${Math.round(color.s)}%, ${Math.round(color.l)}%, ${alpha})`;
+}
+
+function blendColors(color1, color2) {
+    // Circular average for hue (handles 0-360 wrapping)
+    let h1 = color1.h;
+    let h2 = color2.h;
+    let dh = h2 - h1;
+    if (dh > 180) dh -= 360;
+    if (dh < -180) dh += 360;
+    let h = (h1 + dh / 2) % 360;
+    if (h < 0) h += 360;
+
+    return {
+        h: h,
+        s: (color1.s + color2.s) / 2,
+        l: (color1.l + color2.l) / 2
+    };
+}
 const ctx = canvas.getContext("2d");
 
 let particles = [];
@@ -42,7 +94,7 @@ function adjustParticleCount() {
 
 function resize() {
     canvas.width = document.documentElement.clientWidth;
-    canvas.height = document.documentElement.clientHeight;
+    canvas.height = document.documentElement.clientHeight - 75;
 }
 
 let resizeTimeout;
@@ -71,7 +123,8 @@ function createParticle() {
         connections: 0,
         cx: 0,
         cy: 0,
-        orbitDir: Math.random() < 0.5 ? -1 : 1
+        orbitDir: Math.random() < 0.5 ? -1 : 1,
+        color: getRandomColor()
     };
 }
 
@@ -133,10 +186,14 @@ function draw(time) {
                 particles[j].cx += particles[i].x;
                 particles[j].cy += particles[i].y;
 
+                // Blend connection color from both particles
+                const blendedColor = blendColors(particles[i].color, particles[j].color);
+                const opacity = 1 - dist / particleConnectDistance;
+
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(204, 231, 255,${1 - dist / particleConnectDistance})`;
+                ctx.strokeStyle = hslToString(blendedColor, opacity);
                 ctx.lineWidth = particleConnectWidth;
                 ctx.stroke();
             }
@@ -182,7 +239,7 @@ function draw(time) {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, particleRadius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255,255,255,0.7)";
+        ctx.fillStyle = hslToString(p.color, 0.7);
         ctx.fill();
     });
 
