@@ -40,9 +40,45 @@ p {
 
 img.project-img {
     border-radius: 10px;
+    cursor: pointer;
+}
+.carousel {
+    min-height: 750px;
+}
+
+.inner-carousel {
+    border-radius: 10px;
+}
+
+.carousel-caption-below {
+    background: rgba(0, 0, 0, 0.75);
+    margin-top: -1px;
+    text-align: left;
+}
+
+.carousel-caption-below h5,
+.carousel-caption-below p {
+    margin: 0;
+}
+
+
+.modal-image-content {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.modal-image {
+    border-radius: 10px;
+}
+.modal-backdrop.show {
+    background-color: rgba(0, 0, 0, 0.75);
 }
 .section-title {
     background-color: #191d23;
+}
+
+.img-invert{
+    filter: invert();
 }
 
 #mapCanvas {
@@ -74,11 +110,30 @@ img.project-img {
     align-items: center;
 }
 .hero-text{
+    /*
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 70%;
-    padding: 20px;
+    */
+    background-color: rgba(30, 30, 30, 0.5);
+    /*top: 50%;
+    left: 50%;
+    width: 62% !important;
+    transform: translate(-50%, -50%);*/
+}
+
+#bg {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+#scrollspyAbout{
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 480px) {
+    .hero-text-mobile{
+        font-size: 12pt;
+    }
 }

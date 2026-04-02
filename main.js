@@ -157,22 +157,51 @@ const projects = [
             <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="CSS" class="fa-brands fa-css"></i>
         `,
         repository: "https://github.com/SourTarte/Powered-By-Lancer",
-        deployed: "Deployed",
-    }
+        deployed: null,
+    },
+    {
+        id: "heightmap",
+        title: "Heightmap Board Generator",
+        date: "",
+        image: "assets/img/godot-procedural-hex-screenshots.png",
+        summary: "While experimenting with the concept of a digital board game, I found myself interested in the topic of procedural generation. Before long I was experimenting with creating that would enable quick, iterative design.<br><br>I created a script that would take an image and output an arrays of hexagonal objects, using the value of each pixel to determine the height at which each object should be outputted.",
+        overview: null,
+        tech:`
+            
+        `,
+        repository: null,
+        deployed: null,
+    },
+    {
+        id: "pythonscripting",
+        title: "Python Script Automation",
+        date: "",
+        image: "assets/img/soulbound-json-parser-screenshot.png",
+        summary: "I commonly find myself seeking out ways to lower friction in my day-to-day by automating tasks like transcription and data entry. This image shows the opening lines of a script that I wrote. It parses markdown into JSON ready for import into into FoundryVTT, a virtual tabletop software built using web technologies.",
+        overview: null,
+        tech:`
+            
+        `,
+        repository: null,
+        deployed: null,
+    },
 ];
 
 function createProjectInformation(project) {
     return `
         <article class="project" id="${project.id}">
             <div class="reveal container">
-                <div class="project-card my-2 px-3 py-4">
+                <div class="project-card my-3 ps-4 pe-4 py-3">
                     <div class="row">
                         <div class="col">
-                        <div>
+                        <div class="row">
                             <button type="button" class="btn btn-link p-0 border-0 project-image-button" data-bs-toggle="modal" data-bs-target="#projectImageModal" data-bs-image="${project.image}" data-bs-title="${project.title}" aria-label="Open ${project.title} image">
                                 <img src="${project.image}" class="img-fluid project-img" alt="Screenshot of ${project.title}" style="object-fit: contain">
                             </button>
                         </div>
+                        <div class="row mt-1 mb-0">
+                            <p class="text-muted text-center" style="font-size: 11pt;">Click Image to Expand</p>
+                        </div>      
                             
                         </div>
                         <div class="col-9 my-lg-2 mb-5 justify-content-evenly">
@@ -189,11 +218,11 @@ function createProjectInformation(project) {
                             <!---- Project Summary ---->
                             <p>${project.summary}</p>
                             <!---- Links ---->
-                            <p><a href=${project.repository} class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Repository</a></p>
-                            <p><a href=${project.deployed} class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Deployed Link</a></p>
+                            ${project.repository ? `<p><a href=${project.repository} class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Repository</a></p>` : ""}
+                            ${project.deployed ? `<p><a href="${project.deployed}" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Deployed Link</a></p>` : ""}
                         </div>
                     </div>
-                    <div class="row">
+                    ${project.overview ? `<div class="row">
                         <div class="accordion mt-3" id="AccordionOverview-${project.id}">
                             <div class="accordion-item">
                                 <h2 class="accordion-header align-items-center align-content-center">
@@ -208,7 +237,8 @@ function createProjectInformation(project) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>` : ""}
+                    
                 </div>
             </div>
         </article>
