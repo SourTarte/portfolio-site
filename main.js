@@ -166,10 +166,12 @@ function createProjectInformation(project) {
         <article class="project" id="${project.id}">
             <div class="reveal container">
                 <div class="project-card my-2 px-3 py-4">
-                    <div class="row"">
+                    <div class="row">
                         <div class="col">
                         <div>
-                            <img src=${project.image} class="img-fluid project-img" alt="..." style="object-fit: contain">
+                            <button type="button" class="btn btn-link p-0 border-0 project-image-button" data-bs-toggle="modal" data-bs-target="#projectImageModal" data-bs-image="${project.image}" data-bs-title="${project.title}" aria-label="Open ${project.title} image">
+                                <img src="${project.image}" class="img-fluid project-img" alt="Screenshot of ${project.title}" style="object-fit: contain">
+                            </button>
                         </div>
                             
                         </div>
@@ -244,10 +246,28 @@ reveals.forEach(el => observer.observe(el));
 
 const scrollSpyNav = new bootstrap.ScrollSpy(document.body, {
     target: '#navbar',
-    offset: 300,
+    offset: 0,
 })
 
+// Modal image handling
+const projectImageModal = document.getElementById('projectImageModal');
+if (projectImageModal) {
+    projectImageModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const imageSrc = button.getAttribute('data-bs-image');
+        const title = button.getAttribute('data-bs-title');
+        const modalImg = this.querySelector('.modal-body img');
+        const modalTitle = this.querySelector('.modal-title');
 
+        if (modalImg) {
+            modalImg.src = imageSrc;
+            modalImg.alt = `Screenshot of ${title}`;
+        }
+        if (modalTitle) {
+            modalTitle.textContent = title;
+        }
+    });
+}
 
 //Initialising Popover
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
