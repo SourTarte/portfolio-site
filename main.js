@@ -208,18 +208,15 @@ function createProjectInformation(project) {
                             <!---- Project Title ---->
                             <div class="row pb-2">
                                 <div class="col">
-                                    <h2 class="text-start">${project.title}</h2>
+                                    <h2 class="fw-light fs-4 text-uppercase tracking-wide header-underline">${project.title}</h2>
                                 </div>
                                 <!---- Programming Language and Tool Icons ---->
-                                <div class="col-3 text-end" style="font-size: 21pt;">
+                                <div class="col-auto text-end" style="font-size: 21pt;">
                                     ${project.tech}
                                 </div>
                             </div>
                             <!---- Project Summary ---->
                             <p>${project.summary}</p>
-                            <!---- Links ---->
-                            ${project.repository ? `<p><a href=${project.repository} class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Repository</a></p>` : ""}
-                            ${project.deployed ? `<p><a href="${project.deployed}" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-50-hover">Deployed Link</a></p>` : ""}
                         </div>
                     </div>
                     ${project.overview ? `<div class="row">
@@ -232,6 +229,11 @@ function createProjectInformation(project) {
                                 </h2>
                                 <div id="panelsStayOpen-collapse-${project.id}" class="accordion-collapse collapse">
                                     <div class="accordion-body">
+                                        <div class="container py-3 ps-0 ms-0">
+                                            ${project.repository ? `<a href=${project.repository}  target="_blank" class="btn btn-outline-light btn-sm">Repository</a>` : ""}
+                                            ${project.deployed ? `<a href="${project.deployed}" target="_blank" class="btn btn-outline-light btn-sm">Deployed Link</a>` : ""}
+                                        </div>
+                                        
                                         ${project.overview}
                                     </div>
                                 </div>

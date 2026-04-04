@@ -29,9 +29,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#scrollspyCV">CV</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyContact">Contact</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -47,7 +44,7 @@
                     </div>
                     <div class="col-md-9 d-flex hero-text">
                         <div class="d-flex flex-column justify-content-center">
-                            <h1 class="">Hi, I'm Dion</h1>
+                            <h2 class="fw-light text-uppercase tracking-wide header-underline">Hi, I'm Dion</h2>
                             <p class="">I’m a developer focused on building clear and practical solutions to real problems. I work across both front end and back end, with experience handling structured data and building systems that are reliable and easy to use. My background in customer-facing roles shapes how I approach development, with a strong focus on clarity and usability.<br><br>Outside of coding, I plan and build tabletop roleplay experiences for others, and I spend time on digital art, miniature painting, and 3D modelling. These all reinforce how I work, with attention to detail, creativity, and a focus on building things that people can actually use and enjoy.</p>
                         </div>
                     </div>
@@ -66,14 +63,306 @@
         <canvas class="" id="bg" style="padding-top: 75px"></canvas>
     </section>
 
+
+
+    <section id="capabilities" class="py-5">
+        <div class="container">
+
+            <!-- Section Title -->
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <h2 class="fw-light text-uppercase tracking-wide header-underline">Capabilities</h2>
+                </div>
+            </div>
+
+            <!-- Matrix -->
+            <div class="row g-4 reveal">
+
+                <!-- Column 1 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="capability-block">
+                        <h6 class="capability-title">Backend & Systems</h6>
+                        <ul class="capability-list">
+                            <li>Django</li>
+                            <li>Python</li>
+                            <li>REST-style thinking</li>
+                            <li>C# (familiar)</li>
+                            <li>Local servers</li>
+                            <li>Networking basics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="capability-block">
+                        <h6 class="capability-title">Frontend & Web</h6>
+                        <ul class="capability-list">
+                            <li>HTML / CSS</li>
+                            <li>JavaScript</li>
+                            <li>Bootstrap</li>
+                            <li>UI structuring</li>
+                            <li>Responsive layouts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="capability-block">
+                        <h6 class="capability-title">Data & Integration</h6>
+                        <ul class="capability-list">
+                            <li>Data handling</li>
+                            <li>GDPR awareness</li>
+                            <li>System integration</li>
+                            <li>Persistence layers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="capability-block">
+                        <h6 class="capability-title">Workflow & Delivery</h6>
+                        <ul class="capability-list">
+                            <li>Agile environments</li>
+                            <li>Task management</li>
+                            <li>Git (CLI)</li>
+                            <li>Version control discipline</li>
+                            <li>Team collaboration</li>
+                            <li>Stakeholder communication</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="scrollspyProjects">
+        <div class="section-title px-0 mx-0 pt-2 pb-1 text-center">
+            <div class="container">
+                <div class="row">
+                    <h2 class="fw-light text-uppercase tracking-wide header-underline">Projects</h2>
+
+<!--                    <h1>Projects</h1>-->
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid section-odd px-0 mx-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-end z-0 d-none d-lg-block" id="">
+                        <nav class="sticky-top" style="padding-top: 30%;">
+                            <ul class="nav flex-column" id="project-link-list">
+
+                            </ul>
+                        </nav>
+
+                        <!-- Creates a list of project section links in main.js -->
+                    </div>
+                    <div class="col-12 col-lg-10 projects scrollspy-projects" id="project-history" data-bs-offset="0px 0px -25%" data-bs-spy="scroll" data-bs-target="#project-link-list" tabindex="0" data-bs-smooth-scroll="true" >
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="section-title text-end">
+            <div class="container">
+                <div class="row">
+                    <h1>Minor Projects</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid section-odd px-0 mx-0">
+            <div class="container">
+                <div class="reveal row project-card my-4 px-1 py-3">
+                    <div class="col-5">
+                        <button type="button" class="btn btn-link p-0 border-0 project-image-button" data-bs-toggle="modal" data-bs-target="#projectImageModal" data-bs-image="assets/img/godot-procedural-hex-screenshots.png" data-bs-title="Heightmap Board Generator" aria-label="Open Heightmap Board Generator image">
+                            <img src="assets/img/godot-procedural-hex-screenshots.png" class="d-block w-100" alt="...">
+                        </button>
+                    </div>
+                    <div class="col">
+                        &lt;!&ndash;&#45;&#45; Project Title &#45;&#45;&ndash;&gt;
+                        <div class="row pb-2">
+                            <div class="col">
+                                <h2 class="text-start">Heightmap Board Generator</h2>
+                            </div>
+                            &lt;!&ndash;&#45;&#45; Programming Language and Tool Icons &#45;&#45;&ndash;&gt;
+                            <div class="col-3 text-end" style="font-size: 21pt;">
+                                <img src="assets/icons/icon_monochrome_light.png" class="img-fluid img-invert d-block float-end my-auto" style="height:1em;" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Godot">
+                            </div>
+                        </div>
+                        &lt;!&ndash;&#45;&#45; Project Summary &#45;&#45;&ndash;&gt;
+                        <p>While experimenting with the concept of a digital board game, I found myself interested in the topic of procedural generation. Before long I was experimenting with creating that would enable quick, iterative design. <br><br>
+                            I created a script that would take an image and output an arrays of hexagonal objects, using the value of each pixel to determine the height at which each object should be outputted.</p>
+                    </div>
+                </div>
+                <div class="reveal row project-card my-4 px-1 py-3">
+                    <div class="col-5">
+                        <button type="button" class="btn btn-link p-0 border-0 project-image-button" data-bs-toggle="modal" data-bs-target="#projectImageModal" data-bs-image="assets/img/soulbound-json-parser-screenshot.png" data-bs-title="Python Script Automation" aria-label="Open Python Script Automation image">
+                            <img src="assets/img/soulbound-json-parser-screenshot.png" class="d-block w-100" style="object-fit: cover;" alt="...">
+                        </button>
+
+                    </div>
+                    <div class="col">
+                        &lt;!&ndash;&#45;&#45; Project Title &#45;&#45;&ndash;&gt;
+                        <div class="row pb-2">
+                            <div class="col">
+                                <h2 class="text-start">Python Script Automation</h2>
+                            </div>
+                            &lt;!&ndash;&#45;&#45; Programming Language and Tool Icons &#45;&#45;&ndash;&gt;
+                            <div class="col-3 text-end" style="font-size: 21pt;">
+                                <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Python" class="fa-brands fa-python"></i>
+                            </div>
+                        </div>
+                        &lt;!&ndash;&#45;&#45; Project Summary &#45;&#45;&ndash;&gt;
+                        <p>I commonly find myself seeking out ways to lower friction in my day-to-day by automating tasks like transcription and data entry. This image shows the opening lines of a script that I wrote. It parses markdown into JSON ready for import into into FoundryVTT, a virtual tabletop software built using web technologies.</p>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+
+    </section>
+
+<!--    <section id="scrollspyInterests">
+        <div class="section-title px-0 mx-0 pt-2 pb-1 text-end">
+            <div class="container">
+                <div class="row">
+                    <h1>Interests</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid section-even text-end">
+            <div class="container">
+                <section class="interests">
+                    <div class="spacer"></div>
+                </section>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="scrollspyCV" class="pt-5">
+        <div class="container">
+
+            <!-- Header + CTA -->
+            <div class="row align-items-center text-center">
+                <h2 class="fw-light text-uppercase tracking-wide mb-2 header-underline">My Experience</h2>
+            </div>
+            <div class="row align-items-center mb-4 text-center">
+                <div class="col"></div>
+                <div class="col-6 text-center">
+                    <a href="/assets/Dion_McMillan_CV.pdf" target="_blank" class="btn btn-outline-secondary btn-sm">
+                        Download Full CV
+                    </a>
+                </div>
+                <div class="col"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="row g-4">
+
+                <!-- Experience -->
+                <div class="col-12 col-lg-6">
+                    <div class="cv-block">
+                        <h6 class="cv-title">Experience</h6>
+
+                        <div class="cv-item">
+                            <span class="cv-role">Energy Specialist — Octopus Energy</span>
+                            <span class="cv-meta">2023</span>
+                            <p>
+                                Managed customer cases using Kraken CRM, handling sensitive data under GDPR.
+                                Acted as a single point of contact, resolving complex issues across departments.
+                            </p>
+                        </div>
+
+                        <div class="cv-item">
+                            <span class="cv-role">Customer Service Assistant — Screwfix</span>
+                            <span class="cv-meta">2021–2024</span>
+                            <p>
+                                Delivered technical product guidance across a large inventory, translating requirements
+                                into practical solutions in a fast-paced retail environment.
+                            </p>
+                        </div>
+
+                        <div class="cv-item">
+                            <span class="cv-role">Replenishment Team Member — B&M</span>
+                            <span class="cv-meta">2024–2025</span>
+                            <p>
+                                Worked within a team to meet operational targets, balancing independent workload
+                                management with customer-facing responsibilities.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="col-12 col-lg-6">
+                    <div class="cv-block">
+                        <h6 class="cv-title">Education</h6>
+
+                        <div class="cv-item">
+                            <span class="cv-role">Full-Stack Software Development — Code Institute</span>
+                            <span class="cv-meta">2025</span>
+                            <p>
+                                Built full-stack applications using Django, JavaScript, and relational data.
+                                Managed Git workflows, team environments, and deployment consistency.
+                            </p>
+                        </div>
+
+                        <div class="cv-item">
+                            <span class="cv-role">BSc Games Design — University of Bolton</span>
+                            <span class="cv-meta">2015–2018</span>
+                            <p>
+                                Developed systems in Unity and Unreal, focusing on gameplay mechanics,
+                                data modelling, and iterative design.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Extras -->
+                <div class="col-12">
+                    <div class="cv-block">
+                        <h6 class="cv-title">Additional</h6>
+
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <p><strong>QA Testing</strong><br>
+                                    Identified and documented issues on shipped titles, supporting dev teams with reproducible cases.</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Hackathons</strong><br>
+                                    Delivered complete features under tight constraints, strengthening rapid problem-solving.</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Leadership</strong><br>
+                                    Vice Chairman of tabletop society, organising events and onboarding new members.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section id="scrollspyContact">
         <div class="container-fluid section-even ">
-            <div class="container my-5">
-                <div class="project-card p-4">
-                    <h4 class="text-center mb-5">Where to find me</h4>
+            <div class="container pt-5">
+                <div>
+                    <div class="row mb-4">
+                        <div class="col text-center">
+                            <h2 class="fw-light text-uppercase tracking-wide header-underline">Where To Find Me</h2>
+                        </div>
+                    </div>
 
-                    <div class="row text-center ">
-
+                    <div class="project-card row text-center">
                         <div class="col-md-3 mb-3">
                             <a href="https://github.com/SourTarte" target="_blank" class="text-body-secondary fs-2 d-block">
                                 <i class="fa-brands fa-github"></i>
@@ -101,133 +390,17 @@
                         </span>
                             <small>SourTarte</small>
                         </div>
-
                     </div>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-
-    <section id="scrollspyProjects">
-        <div class="section-title px-0 mx-0 pt-2 pb-1 text-end">
-            <div class="container">
-                <div class="row">
-                    <h1>Projects</h1>
                 </div>
             </div>
         </div>
-        <div class="container-fluid section-odd px-0 mx-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-end z-0 d-none d-lg-block" id="">
-                        <nav class="sticky-top" style="padding-top: 30%;">
-                            <ul class="nav flex-column" id="project-link-list">
-
-                            </ul>
-                        </nav>
-
-                        <!-- Creates a list of project section links in main.js -->
-                    </div>
-                    <div class="col-12 col-lg-10 projects scrollspy-projects" id="project-history" data-bs-offset="0px 0px -25%" data-bs-spy="scroll" data-bs-target="#project-link-list" tabindex="0" data-bs-smooth-scroll="true" >
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="section-title text-end">
-            <div class="container">
-                <div class="row">
-                    <h1>Minor Projects</h1>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid section-odd px-0 mx-0">
-            <div class="container">
-                <div class="reveal row project-card my-4 px-1 py-3">
-                    <div class="col-5">
-                        <button type="button" class="btn btn-link p-0 border-0 project-image-button" data-bs-toggle="modal" data-bs-target="#projectImageModal" data-bs-image="assets/img/godot-procedural-hex-screenshots.png" data-bs-title="Heightmap Board Generator" aria-label="Open Heightmap Board Generator image">
-                            <img src="assets/img/godot-procedural-hex-screenshots.png" class="d-block w-100" alt="...">
-                        </button>
-                    </div>
-                    <div class="col">
-                        <!---- Project Title ---->
-                        <div class="row pb-2">
-                            <div class="col">
-                                <h2 class="text-start">Heightmap Board Generator</h2>
-                            </div>
-                            <!---- Programming Language and Tool Icons ---->
-                            <div class="col-3 text-end" style="font-size: 21pt;">
-                                <img src="assets/icons/icon_monochrome_light.png" class="img-fluid img-invert d-block float-end my-auto" style="height:1em;" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Godot">
-                            </div>
-                        </div>
-                        <!---- Project Summary ---->
-                        <p>While experimenting with the concept of a digital board game, I found myself interested in the topic of procedural generation. Before long I was experimenting with creating that would enable quick, iterative design. <br><br>
-                            I created a script that would take an image and output an arrays of hexagonal objects, using the value of each pixel to determine the height at which each object should be outputted.</p>
-                    </div>
-                </div>
-                <div class="reveal row project-card my-4 px-1 py-3">
-                    <div class="col-5">
-                        <button type="button" class="btn btn-link p-0 border-0 project-image-button" data-bs-toggle="modal" data-bs-target="#projectImageModal" data-bs-image="assets/img/soulbound-json-parser-screenshot.png" data-bs-title="Python Script Automation" aria-label="Open Python Script Automation image">
-                            <img src="assets/img/soulbound-json-parser-screenshot.png" class="d-block w-100" style="object-fit: cover;" alt="...">
-                        </button>
-
-                    </div>
-                    <div class="col">
-                        <!---- Project Title ---->
-                        <div class="row pb-2">
-                            <div class="col">
-                                <h2 class="text-start">Python Script Automation</h2>
-                            </div>
-                            <!---- Programming Language and Tool Icons ---->
-                            <div class="col-3 text-end" style="font-size: 21pt;">
-                                <i data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Python" class="fa-brands fa-python"></i>
-                            </div>
-                        </div>
-                        <!---- Project Summary ---->
-                        <p>I commonly find myself seeking out ways to lower friction in my day-to-day by automating tasks like transcription and data entry. This image shows the opening lines of a script that I wrote. It parses markdown into JSON ready for import into into FoundryVTT, a virtual tabletop software built using web technologies.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
     </section>
-
-<!--    <section id="scrollspyInterests">
-        <div class="section-title px-0 mx-0 pt-2 pb-1 text-end">
-            <div class="container">
-                <div class="row">
-                    <h1>Interests</h1>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid section-even text-end">
-            <div class="container">
-                <section class="interests">
-                    <div class="spacer"></div>
-                </section>
-            </div>
-        </div>
-    </section> -->
 
 </main>
 
     <div class="container">
         <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom">
-                <li class="nav-item">
-                    <a href="https://github.com/sourtarte" target="_blank" class="nav-link px-2 text-body-secondary">
-                        <i class="fa-brands fa-square-github fs-2"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.linkedin.com/in/dion-mcmillan-615141115/" target="_blank" class="nav-link px-2 text-body-secondary">
-                        <i class="fa-brands fa-linkedin fs-2"></i>
-                    </a>
-                </li>
             </ul>
             <p class="text-center text-body-secondary">© 2026 Dion McMillan</p>
         </footer>
